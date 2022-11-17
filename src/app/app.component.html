@@ -1,0 +1,43 @@
+<p-table
+  #dt
+  styleClass="p-datatable-gridlines p-datatable-striped"
+  [columns]="cols"
+  [value]="test"
+  responsiveLayout="scroll"
+  [paginator]="true"
+  [rows]="10"
+  [showCurrentPageReport]="true"
+  currentPageReportTemplate="{first} bis {last} von {totalRecords} Datensätze"
+  [rowsPerPageOptions]="[10, 25, 50]"
+>
+  <ng-template pTemplate="header" let-columns>
+    <tr>
+      <th *ngFor="let col of cols">
+        {{ col.title }}
+      </th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-rowData let-columns="columns">
+    <tr *ngFor="let value of test; let i = index">
+      <!--<td>
+        {{ value.id }}
+      </td>-->
+      <td>
+        {{ value.name }}
+      </td>
+      <td>
+        {{ value.price }}
+      </td>
+      <td>
+        {{ value.stored }}
+      </td>
+      <td>
+        {{ value.costPerPound }}
+      </td>
+      <td>
+        {{ value.mixture }}
+        test
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
